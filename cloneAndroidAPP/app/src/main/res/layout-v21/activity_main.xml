@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ba_bg"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:weightSum="1">
+
+    <!-- 색은 색깔 모양 클릭해서 직접 변경 가능
+        테마 변경하기: res/values/themes/ >> DaraActionBar를 NoActionBar로 변경
+            → 이 상단바를 status bar라고 함
+        weightSum >> 화면 비율
+        -->
+
+    <!--
+    orientation - Linear, 수평/수직
+    background - 배경 -->
+
+    <TextView
+        android:layout_marginTop="70dp"
+        android:id="@+id/text_view"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:textColor="#F2528CE3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello \n World!" />
+
+    <!-- margin: 어느 정도 띄우겠다
+        visibility = "invisible" >> 숨김처리 -->
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:src="@drawable/rabbit_icon"
+        android:layout_gravity="center"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        />
+
+    <!-- image view의 source >> src -->
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        />
+    <!-- 빈 공간 생성 -->
+
+    <Button
+        android:id="@+id/account_btn"
+        android:text="Create free account"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="5dp"
+        android:textColor="#FFF"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_corner"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/arona_btn"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="5dp"
+        android:text="Continue with Arona"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_corner"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- textAllCaps >> true: 모두 대문자, false: 대소문자 구별 
+        textColor >> 글자 색
+        backgroundTint >> 버튼 색-->
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:text="Already you have account?"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="5dp"
+        android:text="Login"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_corner_transparency"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Linear Layout
+    gravity - 자신을 기준으로 하위 컴포넌트의 위치 설정
+    layout_gravity - 자신의 상위(부모) 컴포넌트를 기준으로 자신의 위치 설정
+    orientation 설정 필수
+        → 여러 개를 나열할 때 편함
+        → weight 지정 가능
+            ▶ weightSum: LinearLayout에 설정 >> 총 weight의 합
+            ▶ layout_weihgt: View에 설정 >> 이 View의 weight를 설정
+            ▶ CSS의 플렉스 박스와 유사
+
+        key word >> orientation, weight, gravity
+    -->
+
+    <!-- Relative Layout
+    layout_below = "원하는 뷰" >> 아래
+    layout_centerHorizontal = "true/false"
+        → 여러 개의 뷰를 겹칠수 있음
+
+        key word >> top, bottom, left, right, center
+    -->
+
+    <!-- Constraint Layout
+        → 계층이 하나다 >> 뷰가 복잡해져도 하나의 계층으로 다룰수 있음
+        → 회전 등의 화면이 전환이 되도 화면이 그대로 유지가 됨
+        → 최소 3개 이상의 제약이 필요함
+
+        key word >> top, bottom, start, end
+    -->
+
+    <!-- Linear, Relative, Constraint -->
+</LinearLayout>
+
+<!-- 왜 2개로 나눠진거지? -->

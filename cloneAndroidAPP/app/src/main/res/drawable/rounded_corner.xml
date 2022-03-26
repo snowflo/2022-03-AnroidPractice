@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <solid android:color="#8BC2DF"/>-->
+    <gradient
+        android:angle="135"
+        android:centerColor="#555994"
+        android:endColor="#B5B6D2"
+        android:startColor="#555994"
+        android:type="linear"
+        />
+    <!-- 내용물
+        투명도는 색깔 클릭후 >> A를 조정 -->
+    <stroke android:width="3dp" android:color="#CE97F1" />
+    <!-- 가장자리 색깔 >> 윤곽선
+        width >> 선의 두께 -->
+    <corners android:bottomRightRadius="50dp" android:bottomLeftRadius="50dp"
+        android:topRightRadius="50dp" android:topLeftRadius="50dp"/>
+    <!-- corner -->
+    <padding android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="0dp" />
+    <!-- padding >> 안의 내용물을 얼마나 띄울 것인지
+        margin >> 외부 객체와 얼마나 띄울 것인지 -->
+</shape>
