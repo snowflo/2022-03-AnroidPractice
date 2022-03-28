@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="invisible"
+    android:id="@+id/frame_search_button">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_search"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:text="검색"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:clickable="true"
+        android:layout_gravity="center_horizontal">
+    </com.google.android.material.button.MaterialButton>
+
+    <!-- clickable >> 버튼 클릭시 이펙트 발생
+        textAlignment >> 글자 정렬 -->
+
+    <ProgressBar
+        android:id="@+id/btn_progress"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:indeterminateTint="#FFF"
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- 검색 버튼을 위한 layout 생성
+        FrameLayout >> https://recipes4dev.tistory.com/127 -->
+</FrameLayout>

@@ -51,7 +51,8 @@
         />
     <!-- 빈 공간 생성 -->
 
-    <Button
+    <!-- material theme 적용으로 appcompat button으로 변경 -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/account_btn"
         android:text="Create free account"
         android:textStyle="bold"
@@ -64,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/arona_btn"
         android:layout_marginTop="5dp"
         android:layout_marginHorizontal="5dp"
@@ -93,7 +94,7 @@
         android:layout_height="wrap_content"
         />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_btn"
         android:layout_marginTop="5dp"
         android:layout_marginHorizontal="5dp"

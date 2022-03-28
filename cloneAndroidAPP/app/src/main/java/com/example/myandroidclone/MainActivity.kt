@@ -3,6 +3,7 @@ package com.example.myandroidclone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -57,6 +58,16 @@ import kotlinx.android.synthetic.main.activity_main.*
     → 기본 테마가 material >> app으로 변경
         ▶ material은 button을 material button으로 생성하고 이는 background를 무시
     → button을 material button이 아니라 app button으로 생성
+ 8. 안드로이드에서 스튜디오에서 Run이 뜨지 않는 문제
+  -
+    → 프로젝트 폴더를 잘못 찾은 문제 >> 프로젝트 폴더명, 폴더와 동일시 하지말 것
+    → 폴더 위치를 잘못 찾으면 안 된다
+ 9. android.view.InflateException
+  - https://youtu.be/cKvemtEP-Vw 의 댓글
+    → Error inflating class com.google.android.material.textfield.TextInputLayout
+    → theme를 Theme.Material3.DayNight.* 로 변경하여 사용
+        ▶ 기존 >> Theme.MaterialComponents.Light.NoActionBar
+        ▶ Material3로 해야되는듯
  */
 
 class MainActivity : AppCompatActivity() {
@@ -80,6 +91,20 @@ class MainActivity : AppCompatActivity() {
             // ( View.OnClickListener )를 생략
             onLoginButtonClicked()
         }
+
+        arona_btn.setOnClickListener{
+            onAronaButtonClicked()
+        }
+
+        someCallbackMethod(completion = {   // 비동기 처리
+            Log.d(TAG, "MainActivity - 컴플레션 블럭 호출됨, it: $it");  // it은 it:String
+            someCallbackMethod2 {
+                Log.d(TAG, "MainActivity - 컴플레션 블럭 호출됨, it: $it");  // it은 it:String
+                someCallbackMethod3 {
+                    Log.d(TAG, "MainActivity - 컴플레션 블럭 호출됨, it: $it");  // it은 it:String
+                }
+            }
+        })
     }
 
     override fun onStart() {
@@ -125,6 +150,46 @@ class MainActivity : AppCompatActivity() {
          */
         startActivity(intent) // Activity 실행
     }
+
+    // arona 함수
+    fun onAronaButtonClicked(){
+        Log.d(TAG, "MainActivity - onAronaButtonClicked() called");
+        
+        val intent = Intent(this, PictureActivity::class.java)
+        /*
+        login과 arona를 합칠 방법을 모색할 필요가 있음
+         */
+        startActivity(intent)
+    }
+
+    // callback method
+    fun someCallbackMethod(completion: (String) -> Unit){ // completion: () -> Unit >> 이게 무슨 문법이지?
+        Log.d(TAG, "MainActivity - someCallbackMethod() called");
+
+        // delay를 준다, 5000L >> 5초
+        Handler().postDelayed({ // 컴플레션 블럭
+                              completion("매개변수를 보내는 completion")    // kotlin String은 " "만 가능
+        }, 5000L)
+    }
+
+    // 연쇄 callback Test, rxjava와 coroutine을 통해 사용이 가능
+    fun someCallbackMethod2(completion: (String) -> Unit){ // completion: () -> Unit >> 이게 무슨 문법이지?
+        Log.d(TAG, "MainActivity - someCallbackMethod() called");
+
+        // delay를 준다, 5000L >> 5초
+        Handler().postDelayed({ // 컴플레션 블럭
+            completion("매개변수를 보내는 completion")    // kotlin String은 " "만 가능
+        }, 5000L)
+    }
+
+    fun someCallbackMethod3(completion: (String) -> Unit){ // completion: () -> Unit >> 이게 무슨 문법이지?
+        Log.d(TAG, "MainActivity - someCallbackMethod() called");
+
+        // delay를 준다, 5000L >> 5초
+        Handler().postDelayed({ // 컴플레션 블럭
+            completion("매개변수를 보내는 completion")    // kotlin String은 " "만 가능
+        }, 5000L)
+    }
 }
 
 /*
@@ -162,4 +227,18 @@ class MainActivity : AppCompatActivity() {
  9. 버튼 액션
   - 리스너 설정
   - xml에 onClick 설정
+ 10. 동기/비동기
+  - Android Main
+    → Main thread >> UI >> API 호출 >> 대기
+  - 동기
+    → API를 호출하고 대기하는 상황이다. 이를 동기라 함
+  - 비동기 >> 컴플레션 블럭을 활용 >> closer 혹은 callback이라 함
+    → 반면 기다리지 않고 나는 내 갈 길 간다. 이를 비동기라 함
+    → 호출한 것이 알아서 돌아온다. >> 이를 callback이라 한다.
+  - 일반적 환경
+    → 웹 서버에 데이터 요청 >> API형태
+        ▶ 보통 여러가지 단계를 거침
+        ▶ 응답값에 따라서 여러 과정을 거침 >> ex) 로그인 정보 확인 >> 다음 정보 요청
+    → rxjava와 coroutine을 통해 사용 가능
+ 11. Android API
  */

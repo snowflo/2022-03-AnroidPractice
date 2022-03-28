@@ -8,19 +8,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyAndroidClone">
-        <activity android:name=".RelativeActivity" android:exported="false"></activity>
+        android:theme="@style/Theme.MyApp"> <!-- style에 추가한 theme로 변경 -->
+        <activity android:name=".PictureActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp"/>
+
+        <activity
+            android:name=".RelativeActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="meta.data.key"
-            android:value="@string/meta_test_str" />
-
-        <!-- 메인 화면 -->
+            android:value="@string/meta_test_str" /> <!-- 메인 화면 -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <!-- 어플이 실행될 때 시작하는 화면
-                → exported="true" -->
+
+            <!--
+                 어플이 실행될 때 시작하는 화면
+                → exported="true"
+            -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PictureActivity"
+    android:id="@+id/picture_scoll_view">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="30dp">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/rabbit_icon"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            />
+
+        <RadioGroup
+            android:id="@+id/search_term_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/photo_search_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사진 검색"
+                android:checked="true"
+                android:layout_marginEnd="20dp"/>
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/user_search_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사용자 검색"
+                android:checked="false"/>
+        </RadioGroup>
+        <!-- 라디오 그룹 >> 라디오 버튼
+            사진검색/사용자검색인 이유 >> Unsplash에서 제공하는 API가 사진/사용자 -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/search_term_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.MediumComponent"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:helperText="검색어를 입력해주세요."
+            app:counterEnabled="true"
+            app:counterMaxLength="12"
+            app:startIconDrawable="@drawable/ic_baseline_photo_library_24"
+            app:endIconMode="clear_text"
+            >
+            <!-- shapeAppearance >> style?, style >> style
+                helperText >> 아래 뜨는 글씨로 뭘 해야하는지 설명
+                counterEnabled >> 글자 수 제한 설정 true/false
+                counterMaxLength >> 최대 글자 수 제한
+                startIconDrawable >> 아이콘 그림 [좌측]
+                endIconMode >> 삭제 그림 [우측], start/end -->
+            <EditText
+                android:id="@+id/search_term_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_term_hint"
+                android:maxLength="12"
+                android:inputType="text"
+                android:layout_marginBottom="5dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- material theme는 edit text를
+            TextInputLayout 안에 생성-->
+
+        <!-- 우측의 안드로이드모양(초록)숫자와 MyAndroidClone
+            >> 안드로이드 버전, 앱 테마
+            >> 버전별 테마 설정 가능 -->
+        <include
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/layout_button_search" />
+        <!-- 외부의 xml을 가져옴 -->
+
+    </LinearLayout>
+</ScrollView>
