@@ -241,4 +241,7 @@ class MainActivity : AppCompatActivity() {
         ▶ 응답값에 따라서 여러 과정을 거침 >> ex) 로그인 정보 확인 >> 다음 정보 요청
     → rxjava와 coroutine을 통해 사용 가능
  11. Android API
+  - Retrofit
+    → client > [이 중간에 intercept로 처리 ]> server
+    → 기본 매개 변수, logging 확인
  */

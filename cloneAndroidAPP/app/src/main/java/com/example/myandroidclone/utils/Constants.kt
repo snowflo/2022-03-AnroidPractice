@@ -9,6 +9,14 @@ enum class SEARCH_TYPE {
     USER
 }   // 사진, 사용자 둘 중 하나를 search >> 후에 api 호출시 사용
 
+object API {
+    const val BASE_URL : String = "https://api.unsplash.com/"
+
+    /*
+        - https://youtu.be/b2ux6PmQq4o
+            →
+     */
+}
 /*
     enum class
     - https://believecom.tistory.com/707

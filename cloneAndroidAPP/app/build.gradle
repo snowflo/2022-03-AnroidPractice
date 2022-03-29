@@ -46,4 +46,16 @@ dependencies {
 
     // material
     implementation 'com.google.android.material:material:1.5.0' // 강의는 1.1.0 >> 최신 버전은 maven repository에서 확인
+
+    // retrofit // 자동 변경 >> 노란색으로 뜨면 F2
+    def retrofit_version = "2.8.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"  // 변수를 이용해 버전 설정 >> 변수는 def로 선언
+
+    // gson converter >> json 데이터 → object, object → json / array → json array
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // retrofit logging interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+    // link >> https://square.github.io/retrofit/
 }
